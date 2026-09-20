@@ -4,7 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyM3BIOLgbEiObWVM07qIdEU",
+      "authorship_tag": "ABX9TyOs1Rx8VXOSJapvO+EFNm6a",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -1905,12 +1905,135 @@
     },
     {
       "cell_type": "code",
-      "source": [],
+      "source": [
+        "top_countries=df['Country'].value_counts().index[:10].tolist()\n",
+        "def group_countries(country):\n",
+        "  if country in top_countries:\n",
+        "    return country\n",
+        "  else:\n",
+        "    return 'other'\n",
+        "\n"
+      ],
       "metadata": {
         "id": "QmiCya1vzBPE"
       },
-      "execution_count": null,
+      "execution_count": 38,
       "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df['Grouped country ']=df['Country'].apply(group_countries)\n",
+        "df['Grouped country '].value_counts()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 460
+        },
+        "id": "DWr8nVmz04Cw",
+        "outputId": "eec7d836-fbfa-4d78-e475-67e8cc68872d"
+      },
+      "execution_count": 41,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "Grouped country \n",
+              "Other        1879\n",
+              "other        1352\n",
+              "India         389\n",
+              "USA           354\n",
+              "Canada        230\n",
+              "Australia     198\n",
+              "UK            185\n",
+              "Germany       136\n",
+              "Mexico         94\n",
+              "Turkey         94\n",
+              "France         87\n",
+              "Name: count, dtype: int64"
+            ],
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>count</th>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>Grouped country</th>\n",
+              "      <th></th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>Other</th>\n",
+              "      <td>1879</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>other</th>\n",
+              "      <td>1352</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>India</th>\n",
+              "      <td>389</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>USA</th>\n",
+              "      <td>354</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>Canada</th>\n",
+              "      <td>230</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>Australia</th>\n",
+              "      <td>198</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>UK</th>\n",
+              "      <td>185</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>Germany</th>\n",
+              "      <td>136</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>Mexico</th>\n",
+              "      <td>94</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>Turkey</th>\n",
+              "      <td>94</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>France</th>\n",
+              "      <td>87</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div><br><label><b>dtype:</b> int64</label>"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 41
+        }
+      ]
     }
   ]
 }
